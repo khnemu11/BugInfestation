@@ -1,35 +1,33 @@
-package edu.hadong.csee.java.lab06; //package, edu.handong.csee.java.lab06 
+package edu.handong.csee.java.lab06; //package, edu.handong.csee.java.lab06 
+import java.util.Scanner; //java.util.Scanner
 
 /**
- * class that has method that can calculate several bugsvolume
+ * main class of edu.handong.csee.java.lab06
  */
-public class CalculateRoach {
-	int houseVolume; //volume of the house
-	int startPopulation; //initial number of roaches
-	int countWeeks; //week counter
-	double GROWTH_RATE= 0.95; //weekly growth rate of the roach population (a constant 0.95)
-	double ONE_BUG_VOLUME=0.002; //volume of an average roach (a constant 0.002)
-	double population; //current number of roaches
-	double totalBugVolume; //total volume of all the roaches
-	double newBugs; //number of roaches hatched this week
-	double newBugVolume; //volume of new roaches
-	
+public class Main {
 	/**
-	 * method that calculates several bugsvolume
-	 */
-	
-	public void CalRoach(){
-		population=startPopulation; //initial population to startPopuation
-		totalBugVolume = population * ONE_BUG_VOLUME; // initial totalBugVolume
-		countWeeks = 0; // initial counweeks
+	 *
+	 *main function, input houseVolume and startPopulation, display final result  
+	 **/
+	public static void main(String[] args) {
+		Scanner scanf = new Scanner(System.in); //make object scanf of Scanner
+		CalculateRoach calro = new CalculateRoach(); // make object calro of CalulateRoach
 		
-		while (totalBugVolume < houseVolume) // repeat under until when totalBugVolume is smaller than houseVolume 
-		{
-			newBugs = population * GROWTH_RATE; //calculate newBugs
-			newBugVolume = newBugs * ONE_BUG_VOLUME;//calculate newBugVolume
-			population = population + newBugs;// calculate population
-			totalBugVolume = totalBugVolume + newBugVolume;// calculate totalBugVolume
-			countWeeks = countWeeks + 1; //calculate countWeeks
-		}
+		System.out.println("Enter the total volume of your house "); //ouput, Enter the total volume of your house 
+		System.out.println("in cubic feet: "); //ouput in cubic feet:
+		calro.houseVolume=scanf.nextInt();//input input value to calro.houseVolume
+		System.out.println("Enter the estimated number of "); //output, Enter the estimated number of 
+		System.out.println("roaches in your house: "); //output, roaches in your house:
+		calro.startPopulation=scanf.nextInt();//save calro.startPopulation
+		
+		calro.CalRoach(); //calculate CalRoach
+		
+		System.out.println("Starting with a roach population of "+calro.startPopulation); //output,Starting with a roach population of +calro.startPopulation 
+		System.out.println("and a house with a volme of "+calro.houseVolume +" cubic feet,"); //ouput, and a house with a volme of +calro.houseVolume + cubic feet
+		System.out.println("after "+ calro.countWeeks+" weeks,"); //output,after + calro.countWeeks+ weeks
+		System.out.println("the house will be filled with "+Math.round(calro.population)+" roaches"); //output,the house will be filled with +calro.population+ roaches 
+		System.out.println("They will fill a volume of "+Math.round(calro.totalBugVolume)+" cubic feet"); //output, They will fill a volume of +calro.totalBugVolume + cubic feet
+		System.out.println("Better call Debugging Experts Inc."); //output, Better call Debugging Experts Inc.
 	}
+
 }

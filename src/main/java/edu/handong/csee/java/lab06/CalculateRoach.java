@@ -1,4 +1,4 @@
-package edu.hadong.csee.java.lab06; //package, edu.handong.csee.java.lab06 
+package edu.handong.csee.java.lab06; //package, edu.handong.csee.java.lab06 
 
 /**
  * class that has method that can calculate several bugsvolume
